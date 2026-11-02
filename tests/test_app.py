@@ -21,6 +21,14 @@ class BmiAppTests(unittest.TestCase):
         self.assertIn("健康體位", page)
         self.assertIn("維持均衡飲食", page)
 
+    def test_detailed_health_advice_is_shown(self):
+        response = self.client.post("/", data={"height": "170", "weight": "65"})
+        page = response.get_data(as_text=True)
+        self.assertIn("建議重點", page)
+        self.assertIn("飲食", page)
+        self.assertIn("運動", page)
+        self.assertIn("睡眠", page)
+
     def test_taiwan_adult_thresholds(self):
         for bmi, category in [
             (18.4, "體重過輕"),
