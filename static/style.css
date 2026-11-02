@@ -66,6 +66,7 @@ button span { font-size: 20px; font-weight: 400; }
 .result-panel h2 { position: relative; z-index: 1; margin: 31px 0 10px; font-size: 17px; }
 .result-advice { position: relative; z-index: 1; max-width: 340px; margin: 0; color: #4f6657; font-size: 14px; line-height: 1.9; }
 .result-meta { position: relative; z-index: 1; margin-top: 18px; }
+.result-summary-title { margin: 0 0 8px; color: #345a46; font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
 .result-summary { margin: 0 0 12px; color: #345a46; font-size: 13px; font-weight: 700; line-height: 1.7; }
 .result-details { margin: 0; padding-left: 18px; color: #4f6657; font-size: 13px; line-height: 1.8; }
 .result-details li + li { margin-top: 8px; }
