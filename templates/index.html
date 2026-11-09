@@ -36,6 +36,12 @@
               <form method="post" action="{{ url_for('index') }}" novalidate>
                 <div class="form-fields">
                   <div class="field">
+                    <label for="name">姓名 <span>NAME</span></label>
+                    <div class="input-wrap">
+                      <input id="name" name="name" type="text" maxlength="50" placeholder="例如 王小明" value="{{ name_input }}">
+                    </div>
+                  </div>
+                  <div class="field">
                     <label for="height">身高 <span>HEIGHT</span></label>
                     <div class="input-wrap">
                       <input id="height" name="height" type="number" inputmode="decimal" min="0.01" step="any" placeholder="例如 170" value="{{ height_input }}" required {% if errors.height %}aria-invalid="true" aria-describedby="height-error"{% endif %}>
@@ -66,12 +72,12 @@
                   <span class="result-unit">BMI</span>
                 </div>
                 <div class="result-divider"></div>
-                <span class="result-label">你的體位屬於 <strong>{{ result.label }}</strong></span>
-                <h2 id="result-title">給你的健康建議</h2>
-                <p class="result-advice">{{ result.advice }}</p>
+                <span class="result-label">{{ result.user_name or '你' }}的體位屬於 <strong>{{ result.label }}</strong></span>
+                <h2 id="result-title">給{{ result.user_name or '你' }}的健康建議</h2>
+                <p class="result-advice">{{ result.user_name or '你' }}，{{ result.advice }}</p>
                 <div class="result-meta">
                   <p class="result-summary-title">建議重點</p>
-                  <p class="result-summary">{{ result.summary }}</p>
+                  <p class="result-summary">{{ result.user_name or '你' }}，{{ result.summary }}</p>
                   <ul class="result-details">
                     {% for detail in result.details %}
                       <li>{{ detail }}</li>
